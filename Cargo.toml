@@ -1,0 +1,12 @@
+[package]
+name = "atspi-cache-sigmon"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+atspi = { git = "https://github.com/odilia-app/atspi.git", branch = "fix-for-unmarshalled-cache-msgs", default-features = false, features = ["tokio","proxies","connection",] }
+zbus = "3"
+tokio = { version = "1.32.0", features = ["full"] }
+tokio-stream = "0.1.14"
