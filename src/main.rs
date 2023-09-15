@@ -16,6 +16,8 @@ async fn atspi_setup_connection() -> Result<AccessibilityConnection> {
     // Get a connection to the AT-SPI D-Bus service
     let atspi: AccessibilityConnection = AccessibilityConnection::open().await?;
 
+    // Register for events with registryd & set match rules at the a11y bus
+    // (if applicable)
     atspi.register_event::<AddAccessibleEvent>().await?;
     atspi.register_event::<LegacyAddAccessibleEvent>().await?;
     atspi.register_event::<RemoveAccessibleEvent>().await?;
